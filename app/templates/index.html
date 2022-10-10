@@ -1,0 +1,34 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <div class="container">
+        <div class="row mt-3 g-4">
+            {% for p in products %}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{p.prod_img.url}}" height="300" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{p.prod_name}}</h5>
+                          <p class="card-text">{{p.prod_desc}}</p>
+                          <h2>Price : {{p.prod_price}}</h2>
+                          <form method="get" action=" {% url 'buy_product' p.id %} ">
+
+                            <button type="submit" class="btn btn-primary mb-3">Buy Now</button>
+                          </form>
+                        </div>
+                      </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
