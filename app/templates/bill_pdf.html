@@ -12,24 +12,114 @@
                 <table class="table">
                     <tr>
                           <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:15px;">
-                              Invoice Number: {{data.name}}
+                              Invoice Number: {{data.id}}
                           </td>
                       </tr>
                       <tr>
                           <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:15px;">
-                                  Invoice Date: {{data.product_date}}
+                                  Invoice Date: {{data.date}}
                           </td>
                       </tr>
                 </table>
             </div>
-        </div>
-    </div>
 
-    <h1>jjj</h1>
+    <div>
+        <h3 class="text-center">Seller Details</h3  >
+        
+            <table class="table">
+                <tbody>
     {% for s in seller %}
-
-        {{s.name}}       
+                
+                <tr>
+                    <th>Seller Name</th>
+                
+                    <td>{{s.name}}</td>
+                </tr>
+                <tr>
+                    <th>Seller Address</th>
+                    
+                    <td>{{s.address}}</td>
+                </tr>
+                <tr>
+                    <th>Seller Phone</th>
+                
+                    <td>{{s.phone}}</td>
+                </tr>
+                <tr>
+                    <th>Seller Date</th>
+                
+                    <td>{{s.date}}</td>
+                </tr>
     {% endfor %}
 
+                </tbody>
+            </table>
+    </div>
+
+    <div>
+        <h3 class="text-center">Buyer Details</h3  >
+        
+            <table class="table">
+                <tbody>
+   
+                
+                <tr>
+                    <th>Buyer Name</th>
+                
+                    <td>{{data.name}}</td>
+                </tr>
+                <tr>
+                    <th>Buyer Address</th>
+                    
+                    <td>{{data.address}}</td>
+                </tr>
+                <tr>
+                    <th>Buyer Phone</th>
+                
+                    <td>{{data.phone}}</td>
+                </tr>
+                
+
+
+                </tbody>
+            </table>
+    </div>
+    <table class="table table-bordered">
+        
+        <tbody>
+          <tr>
+            
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+          </tr>
+          <tr>
+
+            <td>{{data.prod_name}}</td>
+            <td>{{data.prod_quantity}}</td>
+            <td>{{data.prod_price}}</td>
+          </tr>
+          <tr>
+
+            <th colspan="2">Grand Total</th>
+            <th>{{data.total_price}}</th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center mt-2 mb-4">
+        <button class="btn btn-success w-50" onclick="window.print()">Get Bill</button>
+      </div>
+    </div>
+</div>
+
+<!-- <script type="text/javascript">
+    function myfun(pa){
+    var bk = document.body.innerHTML;
+    var dv = document.getElementById(pa).innerHTML;
+        document.body.innerHTML = dv;
+        window.print();
+    }
+
+</script> -->
 
 {% endblock %}
